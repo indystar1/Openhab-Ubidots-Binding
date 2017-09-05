@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<thing:thing-descriptions bindingId="ubidots"
+						  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+						  xmlns:thing="http://eclipse.org/smarthome/schemas/thing-description/v1.0.0"
+						  xsi:schemaLocation="http://eclipse.org/smarthome/schemas/thing-description/v1.0.0 http://eclipse.org/smarthome/schemas/thing-description-1.0.0.xsd">
+
+	<!-- Sample Thing Type -->
+	<thing-type id="ubi_comm">
+		<label>Ubidots Communication</label>
+		<description>Provides communication between OpenHAB and Ubidots</description>
+
+		<channels>
+            <channel id="gauge1" typeId="gauge">
+                <label>Gauge 1</label>
+                <properties>
+                    <property name="binding:*:OnOffType">SWITCH_BINARY,BASIC</property>
+                </properties>
+            </channel>
+		</channels>
+
+        <config-description>
+            <parameter name="thing" type="integer" required="false">
+                <label>Itemname</label>
+                <description>Item name</description>
+            </parameter>
+        </config-description>
+
+   	</thing-type>
+
+	<!-- Gauge Type -->
+	<channel-type id="gauge">
+		<item-type>Gauge</item-type>
+		<label>Regular Gauge</label>
+		<description>Gauge drawing</description>
+	</channel-type>
+
+</thing:thing-descriptions>

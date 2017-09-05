@@ -1,0 +1,19 @@
+// A few example items
+
+Number FrontMotion "Front Motion? [MAP(motion.map):%d]" <man> (Sensors) {mqtt="<[mybroker:IThome/FrontMotion:state:default]"}
+
+// To detect if my Arduino Yun is offline
+Number YunWatchdog (Sensors) {mqtt="<[mybroker:IThome/YunAlive:state:default]"}
+Number YunAlive "Is My Yun Alive? [MAP(onoffline.map):%d]" <network> (Sensors)
+
+// For Camera 2 control
+Number Cam2Status "Cam2 Status [MAP(onoffline.map):%d]" <ipcam2> (Sensors) {mqtt="<[mybroker:IThome/Cam2Live:state:default]"}
+Switch Cam2OnOff "Cam2 On/Off Control" <onoffsw1> (Settings) {mqtt=">[mybroker:IThome/Cam2OnOff:command:ON:Cam2ON], >[mybroker:IThome/Cam2OnOff:command:OFF:Cam2OFF]"}
+
+// For Irrigation controller
+Dimmer IrriCntl "Sprinkler Control [MAP(switch100.map):%s]" <sprinkler> (Sensors) {mqtt="<[mybroker:IThome/IRRI/IRRiStatus:state:default], >[mybroker:IThome/IRRI:command:ON:IRRiON], >[mybroker:IThome/IRRI:command:OFF:IRRiOFF]"}
+//This is for ThingWorx display
+Number IrriStatus <sprinkler> {mqtt="<[mybroker:IThome/IRRI/IRRiStatus:state:default]"}
+
+// For future device control
+Switch UbiOnOff1 "Ubi1 On/Off Control" <onoffsw1> (Settings) {channel="ubicomm:ubi_comm:indyubi:gauge1", mqtt=">[mybroker:IThome/UbiOnOff1:command:ON:ON], >[mybroker:IThome/UbiOnOff1:command:OFF:OFF]"}
